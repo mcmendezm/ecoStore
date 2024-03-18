@@ -4,8 +4,20 @@ $tertiary-color:#BABD8D;
 $primary-text-color:#7C6A0A;
 $quaternary-color:#FA9500;
 $font-stackl: 'IBM Plex Sans' , sans-serif;
-$paragraph-size:1.5em;
+$paragraph-size:1.3em;
 
+@mixin flexCenter($direction, $content, $align){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $content ;
+    align-items: $align;
+}
+@mixin buttonStyle{
+    button{
+        background:none;
+        border-style: none;
+    }
+}
 
 body {
     margin: 0;
@@ -15,10 +27,9 @@ body {
     font-family: $font-stackl;
 }
 nav{
-    width: auto;
+    width: 100%;
     height: 100px;
-    display: flex;
-    justify-content: space-between;
+    @include flexCenter(row,space-between,center);
     color: $primary-text-color;
     padding: 15px;
     p{
@@ -29,17 +40,13 @@ nav{
         display: flex;
         grid-area: 15px;
         margin-right: 30px;
-        button{
-            background: none;
-            border: none;
-        }
+        @include buttonStyle()
     }
 }
 article{
     width: auto;
     color: $primary-text-color;
-    display: flex;
-    justify-content: space-around;
+    @include flexCenter(row,space-around,center);
     padding-top: 70px;
     .impact-section{
         display: flex;
@@ -59,19 +66,22 @@ article{
         width: 25vw;
         border-radius: 19px;
     }
+    @include buttonStyle();
     button{
         width: 12vw;
         padding: 20px;
         background-color:$quaternary-color ;
-        border: none;
         color: $primary-color;
         border-radius: 35px;
         font-size: 1em;
+        &:hover{
+                transform: scale(1.1);
+            }
         
     }
 }
 section{
-    width: 100%;
+    width: auto;
     height: auto;
     padding: 60px;
     h2{
@@ -85,21 +95,19 @@ section{
             padding-bottom: 60px;
         }
         .card-section{
-            display: flex;
-            width: auto;
+            @include flexCenter(row,center,center);
+            width: 100%;
             height: auto;
-            justify-content: center;
-            align-items: center;
-            column-gap: 200px;
-            row-gap: 80px;
+            gap: 160px;
             flex-wrap: wrap;
         }
         .product-card{
-                width: 14vw;
-                height: 48vh;
+                width: 200px;
+                height: auto;
                 background-color: $secundary-color;
                 color: $primary-text-color;
                 padding: 20px;
+                
                 border-radius: 8px;
                 .icon{
                     width: 100%;
@@ -118,7 +126,7 @@ section{
                     justify-content: center;
                     align-items: center;
                     img{
-                        width: 12vw;
+                        width: 150px;
                         height: 30vh;
                         object-fit: cover;
                         border-radius: 6px;
@@ -140,8 +148,64 @@ section{
     }
     }
 }
+.info-section{
+    width: auto;
+}
+.about-us{
+    width: 100%;
+    padding-bottom: 60px;
+    h2{
+        padding-bottom: 60px;
+        font-weight: bold;
+    }
+    .mission-section{
+    @include flexCenter(row, space-around, center);
+    .earth{
+        display: flex;
+        gap:40px;
+        width: 30vw;
+        color: #E86424;
+        img{
+            object-fit: contain;
+        }
+        p{
+            text-align: center;
+            font-size: $paragraph-size;
+        }
+    }
+    .innovation{
+        @extend .earth
+    }
+    }
+}
+.gallery{
+    width: auto;
+    padding-bottom: 60px;
+    h2{
+        padding-bottom: 60px;
+        font-weight: bold;
+    }
+    .gallery-images{
+        @include flexCenter(row,space-around,center);
+        img{
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            object-position: 5px 35%;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+.location{
+    width: auto;
+}
 .footer{
     background-color: $quaternary-color;
     width: 100%;
     height: 250px;
+    color: $primary-color;
+    padding: 40px;
 }
