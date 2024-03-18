@@ -201,6 +201,23 @@ section{
 }
 .location{
     width: auto;
+    color: #E86424;
+    h2{
+        padding-bottom: 60px;
+        padding-top: 60px;
+    }
+    .map{
+        @include flexCenter(row, center, center);
+    }
+    h3{
+
+    }
+    h3{
+        font-size: 2em;
+    }
+    p{
+        font-size: $paragraph-size;
+    }
 }
 .footer{
     background-color: $quaternary-color;

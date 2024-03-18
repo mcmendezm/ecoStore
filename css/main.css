@@ -203,6 +203,23 @@ section .furniture .product-card {
 
 .location {
   width: auto;
+  color: #E86424;
+}
+.location h2 {
+  padding-bottom: 60px;
+  padding-top: 60px;
+}
+.location .map {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.location h3 {
+  font-size: 2em;
+}
+.location p {
+  font-size: 1.3em;
 }
 
 .footer {
