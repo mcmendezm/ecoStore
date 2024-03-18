@@ -222,7 +222,12 @@ section{
 .footer{
     background-color: $quaternary-color;
     width: 100%;
-    height: 250px;
+    height: auto;
     color: $primary-color;
     padding: 40px;
+    .social-media{
+        @include flexCenter(row, center, center);
+        gap: 40px;
+        padding-bottom: 40px;
+    }
 }
